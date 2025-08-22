@@ -16,12 +16,11 @@ class Book{
 		this.author=author;
 		this.bookID = bookCounter++;
 	}
-	public void getInfo() {
-		Scanner b = new Scanner(System.in);
-		System.out.println("Book's title: " +title);
-		title=b.next();
-		System.out.println("Book's author: " +author);
-		author=b.next();
+	public void getInfo(Scanner b) {
+		System.out.println("Enter Book's title: ");
+		title=b.nextLine();
+		System.out.println("Enter Book's author: ");
+		author=b.nextLine();
 	}
 	public void displayInfo() {
 		System.out.println("Book's title: " +title);
@@ -38,17 +37,18 @@ class Book{
 		System.out.println("Total books: "+(bookCounter-1000));
 	}
 }
-public class Main {
+public class BookMain {
 	public static void main(String []args) {
+		Scanner b = new Scanner(System.in);
 		Book book1 = new Book();
 		book1.displayInfo(true);
 		Book.displayTotalBooks();
 		Book book2 = new Book();
-		book2.getInfo();
+		book2.getInfo(b);
 		book2.displayInfo(true);
 		Book.displayTotalBooks();
 		Book book3 = new Book();
-		book3.getInfo();
+		book3.getInfo(b);
 		book3.displayInfo(true);
 		Book.displayTotalBooks();
 	}
